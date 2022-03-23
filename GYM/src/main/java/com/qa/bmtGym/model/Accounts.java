@@ -1,85 +1,146 @@
 package com.qa.bmtGym.model;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+@Entity
 public class Accounts {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	
-	private int id;
-	private String name;
-	private String password;
+	@Column(nullable = false, length = 50) 
+	private String accountName;
+	
+	@Column(nullable = false, length = 25) 
+	private String accountPassword;
+	
+	@Column(nullable = false, length = 40) 
 	private String email;
+	
+	@Column(nullable = false, length = 30) 
 	private String telNumber;
-	private boolean delete;
 	
+	@Column(nullable = false, length = 40)
+	private String address;
 	
+	@Column(nullable = false)
+	private float price;
 	
-	public Accounts(int id, String name, String password, String email, String telNumber, boolean delete) {
+	@Column(nullable = false)
+	private boolean isdelete;
+
+	public Accounts(long id, String accountName, String accountPassword, String email, String telNumber, String address,
+			float price, boolean isdelete) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.password = password;
+		this.accountName = accountName;
+		this.accountPassword = accountPassword;
 		this.email = email;
 		this.telNumber = telNumber;
-		this.delete = delete;
+		this.address = address;
+		this.price = price;
+		this.isdelete = isdelete;
 	}
-	
-	
-	public Accounts(String name, String password, String email, String telNumber, boolean delete) {
+
+	public Accounts(String accountName, String accountPassword, String email, String telNumber, String address,
+			float price, boolean isdelete) {
 		super();
-		this.name = name;
-		this.password = password;
+		this.accountName = accountName;
+		this.accountPassword = accountPassword;
 		this.email = email;
 		this.telNumber = telNumber;
-		this.delete = delete;
+		this.address = address;
+		this.price = price;
+		this.isdelete = isdelete;
 	}
 
+	public Accounts() {
+		super();
+	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(long id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+
+	public String getAccountName() {
+		return accountName;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getAccountPassword() {
+		return accountPassword;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setAccountPassword(String accountPassword) {
+		this.accountPassword = accountPassword;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getTelNumber() {
 		return telNumber;
 	}
+
 	public void setTelNumber(String telNumber) {
 		this.telNumber = telNumber;
 	}
-	public boolean isDelete() {
-		return delete;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setDelete(boolean delete) {
-		this.delete = delete;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public boolean isIsdelete() {
+		return isdelete;
+	}
+
+	public void setIsdelete(boolean isdelete) {
+		this.isdelete = isdelete;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (delete ? 1231 : 1237);
+		result = prime * result + ((accountName == null) ? 0 : accountName.hashCode());
+		result = prime * result + ((accountPassword == null) ? 0 : accountPassword.hashCode());
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (isdelete ? 1231 : 1237);
+		result = prime * result + Float.floatToIntBits(price);
 		result = prime * result + ((telNumber == null) ? 0 : telNumber.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -89,7 +150,20 @@ public class Accounts {
 		if (getClass() != obj.getClass())
 			return false;
 		Accounts other = (Accounts) obj;
-		if (delete != other.delete)
+		if (accountName == null) {
+			if (other.accountName != null)
+				return false;
+		} else if (!accountName.equals(other.accountName))
+			return false;
+		if (accountPassword == null) {
+			if (other.accountPassword != null)
+				return false;
+		} else if (!accountPassword.equals(other.accountPassword))
+			return false;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
 			return false;
 		if (email == null) {
 			if (other.email != null)
@@ -98,15 +172,9 @@ public class Accounts {
 			return false;
 		if (id != other.id)
 			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
+		if (isdelete != other.isdelete)
 			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
+		if (Float.floatToIntBits(price) != Float.floatToIntBits(other.price))
 			return false;
 		if (telNumber == null) {
 			if (other.telNumber != null)
@@ -115,12 +183,14 @@ public class Accounts {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Accounts [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + ", telNumber="
-				+ telNumber + ", delete=" + delete + "]";
+		return "Accounts [id=" + id + ", accountName=" + accountName + ", accountPassword=" + accountPassword
+				+ ", email=" + email + ", telNumber=" + telNumber + ", address=" + address + ", price=" + price
+				+ ", isdelete=" + isdelete + "]";
 	}
 	
-	
+
 
 }

@@ -1,38 +1,130 @@
 package com.qa.bmtGym.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+
+@Entity
 public class Users {
 	
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	
+	@Column(nullable = false)
+	private String fullName;
+	
+	@Column(nullable = false)
+	private int height;
+	
+	@Column(nullable = false)
+	private int weight;
+	
+	@Column(nullable = false, length = 40) 
 	private String email;
+	
+	@Column(nullable = false, length = 30) 
 	private String telNumber;
-	private boolean delete;
+	
+	@Column(nullable = false)
+	private boolean isDelete;
 	
 	
-	public Users(int id, String email, String telNumber, boolean delete) {
+	
+	
+	public Users() {
+		super();
+	}
+
+
+
+
+	public Users(long id, String fullName, int height, int weight, String email, String telNumber, boolean isDelete) {
 		super();
 		this.id = id;
+		this.fullName = fullName;
+		this.height = height;
+		this.weight = weight;
 		this.email = email;
 		this.telNumber = telNumber;
-		this.delete = delete;
+		this.isDelete = isDelete;
 	}
 
 
-	public Users(String email, String telNumber, boolean delete) {
+
+
+	public Users(String fullName, int height, int weight, String email, String telNumber, boolean isDelete) {
 		super();
+		this.fullName = fullName;
+		this.height = height;
+		this.weight = weight;
 		this.email = email;
 		this.telNumber = telNumber;
-		this.delete = delete;
+		this.isDelete = isDelete;
 	}
 
 
-	public int getId() {
+
+
+	public long getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+
+
+	public void setId(long id) {
 		this.id = id;
 	}
+
+
+
+
+	public String getFullName() {
+		return fullName;
+	}
+
+
+
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+
+
+
+	public int getHeight() {
+		return height;
+	}
+
+
+
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+
+
+
+	public int getWeight() {
+		return weight;
+	}
+
+
+
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+
 
 
 	public String getEmail() {
@@ -40,9 +132,13 @@ public class Users {
 	}
 
 
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 
 
 	public String getTelNumber() {
@@ -50,31 +146,44 @@ public class Users {
 	}
 
 
+
+
 	public void setTelNumber(String telNumber) {
 		this.telNumber = telNumber;
 	}
 
 
+
+
 	public boolean isDelete() {
-		return delete;
+		return isDelete;
 	}
 
 
-	public void setDelete(boolean delete) {
-		this.delete = delete;
+
+
+	public void setDelete(boolean isDelete) {
+		this.isDelete = isDelete;
 	}
+
+
 
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (delete ? 1231 : 1237);
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + id;
+		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
+		result = prime * result + height;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (isDelete ? 1231 : 1237);
 		result = prime * result + ((telNumber == null) ? 0 : telNumber.hashCode());
+		result = prime * result + weight;
 		return result;
 	}
+
+
 
 
 	@Override
@@ -86,30 +195,43 @@ public class Users {
 		if (getClass() != obj.getClass())
 			return false;
 		Users other = (Users) obj;
-		if (delete != other.delete)
-			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
+		if (fullName == null) {
+			if (other.fullName != null)
+				return false;
+		} else if (!fullName.equals(other.fullName))
+			return false;
+		if (height != other.height)
+			return false;
 		if (id != other.id)
+			return false;
+		if (isDelete != other.isDelete)
 			return false;
 		if (telNumber == null) {
 			if (other.telNumber != null)
 				return false;
 		} else if (!telNumber.equals(other.telNumber))
 			return false;
+		if (weight != other.weight)
+			return false;
 		return true;
 	}
 
 
+
+
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", email=" + email + ", telNumber=" + telNumber + ", delete=" + delete + "]";
+		return "Users [id=" + id + ", fullName=" + fullName + ", height=" + height + ", weight=" + weight + ", email="
+				+ email + ", telNumber=" + telNumber + ", isDelete=" + isDelete + "]";
 	}
-	
-	
-	
+
+
+
+
 
 }

@@ -2,42 +2,96 @@ package com.qa.bmtGym.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class GymMemberShip {
 
-	private int id;
-	private int userId;
-	private int acountId ;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+
+	@Column(nullable = false)
+	private long userId;
+	
+
+	@Column(nullable = false)
+	private long accountId ;
+	
+	@Column(nullable = false)
 	private float price;
+	
+	@Column(nullable = false) 
 	private membershipType mType;
+	
+	@Column(nullable = false)
 	private Date startDate;
+	
+	@Column(nullable = false)
 	private int periodDate;
+	
+	@Column(nullable = false)
 	private Date createDate;
-	private boolean delete;
+	
+	@Column(nullable = false)
+	private boolean isDelete;
 	
 	
 	
 	
 	@Override
 	public String toString() {
-		return "GymMemberShip [userId=" + userId + ", acountId=" + acountId + ", price=" + price + ", mType=" + mType
-				+ ", startDate=" + startDate + ", periodDate=" + periodDate + ", createDate=" + createDate + ", delete="
-				+ delete + "]";
+		return "GymMemberShip [userId=" + userId + ", accountId=" + accountId + ", price=" + price + ", mType=" + mType
+				+ ", startDate=" + startDate + ", periodDate=" + periodDate + ", createDate=" + createDate + ", isDelete="
+				+ isDelete + "]";
 	}
+	
+	
+	
+	
+	public GymMemberShip(long userId, long accountId, float price, membershipType mType, Date startDate, int periodDate,
+			Date createDate, boolean isDelete) {
+		super();
+		this.userId = userId;
+		this.accountId = accountId;
+		this.price = price;
+		this.mType = mType;
+		this.startDate = startDate;
+		this.periodDate = periodDate;
+		this.createDate = createDate;
+		this.isDelete = isDelete;
+	}
+
+
+
+
+	public GymMemberShip() {
+		super();
+	}
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + acountId;
+		result = prime * result + (int) (accountId ^ (accountId >>> 32));;
 		result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
-		result = prime * result + (delete ? 1231 : 1237);
-		result = prime * result + id;
+		result = prime * result + (isDelete ? 1231 : 1237);
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((mType == null) ? 0 : mType.hashCode());
 		result = prime * result + periodDate;
 		result = prime * result + Float.floatToIntBits(price);
 		result = prime * result + ((startDate == null) ? 0 : startDate.hashCode());
-		result = prime * result + userId;
+		result = prime * result + (int) (userId ^ (userId >>> 32));;;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -47,14 +101,14 @@ public class GymMemberShip {
 		if (getClass() != obj.getClass())
 			return false;
 		GymMemberShip other = (GymMemberShip) obj;
-		if (acountId != other.acountId)
+		if (accountId != other.accountId)
 			return false;
 		if (createDate == null) {
 			if (other.createDate != null)
 				return false;
 		} else if (!createDate.equals(other.createDate))
 			return false;
-		if (delete != other.delete)
+		if (isDelete != other.isDelete)
 			return false;
 		if (id != other.id)
 			return false;
@@ -73,36 +127,37 @@ public class GymMemberShip {
 			return false;
 		return true;
 	}
-	public GymMemberShip(int id, int userId, int acountId, float price, membershipType mType, Date startDate,
-			int periodDate, Date createDate, boolean delete) {
+
+	public GymMemberShip(long id, long userId, long accountId, float price, membershipType mType, Date startDate,
+			int periodDate, Date createDate, boolean isDelete) {
 		super();
 		this.id = id;
 		this.userId = userId;
-		this.acountId = acountId;
+		this.accountId = accountId;
 		this.price = price;
 		this.mType = mType;
 		this.startDate = startDate;
 		this.periodDate = periodDate;
 		this.createDate = createDate;
-		this.delete = delete;
+		this.isDelete = isDelete;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	public int getAcountId() {
-		return acountId;
+	public long getaccountId() {
+		return accountId;
 	}
-	public void setAcountId(int acountId) {
-		this.acountId = acountId;
+	public void setaccountId(long accountId) {
+		this.accountId = accountId;
 	}
 	public float getPrice() {
 		return price;
@@ -134,16 +189,17 @@ public class GymMemberShip {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public boolean isDelete() {
-		return delete;
+	public boolean isisDelete() {
+		return isDelete;
 	}
-	public void setDelete(boolean delete) {
-		this.delete = delete;
+	public void setisDelete(boolean isDelete) {
+		this.isDelete = isDelete;
 	}
 	 
+	public enum membershipType {
+		none, standart, premium, gold,
+
+	}
 }
 
-enum membershipType {
-	none, standart, premium, gold,
 
-}
