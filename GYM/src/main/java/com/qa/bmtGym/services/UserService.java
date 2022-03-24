@@ -42,8 +42,10 @@ public class UserService {
 		
 		oldUser.setFullName(user.getFullName());
 		oldUser.setTelNumber(user.getTelNumber());
+		oldUser.setWeight(user.getWeight());
 		oldUser.setEmail(user.getEmail());
 		oldUser.setDelete(user.isdelete());
+		oldUser.setHeight(user.getHeight());
 		Users updateUser = oldUser;
 		repo.save(updateUser);
 	
