@@ -26,7 +26,7 @@ public class AccountService {
 		
 	}
 	
-	public Accounts getById(long id) {
+	public Accounts getByAccountId(long id) {
 		return repo.findById(id).get();
 	}
 	
@@ -36,21 +36,22 @@ public class AccountService {
 	}
 	
 	public boolean remove(long id) {
-		Accounts model = repo.getById(id);
+		if(!repo.existsById(id))
+			return true;
+		Accounts model = getByAccountId(id);
+		if(model == null)
+			return true;
 		model.setIsdelete(true);
 		repo.save(model);
 		return true;
 	}
 
-	public boolean deleteAll() {
-		repo.deleteAll();
-		return true;
-	}
+
 	
 	public boolean update(long id, Accounts account) {
 		
 		//Find the object we want to update
-		Accounts oldAccount = getById(id);
+		Accounts oldAccount = getByAccountId(id);
 		
 		oldAccount.setAccountName(account.getAccountName());
 		oldAccount.setAccountPassword(account.getAccountPassword());

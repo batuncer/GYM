@@ -10,7 +10,9 @@ import com.qa.bmtGym.model.Users;
 
 public interface UsersRepo extends JpaRepository<Users, Long>{
 	
-	public List<Users> findByIsDelete (boolean isdelete);
+	public List<Users> findByIsdelete (boolean isdelete);
+
+	
 
 
 }

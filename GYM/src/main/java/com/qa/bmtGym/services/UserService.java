@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.qa.bmtGym.StringOutOfRangeException;
 import com.qa.bmtGym.model.Users;
 import com.qa.bmtGym.repos.UsersRepo;
 
@@ -30,18 +31,21 @@ public class UserService {
 	
 	public List<Users> getUsers(){
 		
-		return repo.findByIsDelete(false);
+		return repo.findByIsdelete(false);
 		
 	}
 	
-	public boolean update(long id, Users user) {
+	public boolean update(long id, Users user) throws StringOutOfRangeException {
+		if(user.getFullName().length() > 50)
+			throw new StringOutOfRangeException("this file more than 50");
 		Users oldUser = getById(id);
 		
+		oldUser.setFullName(user.getFullName());
 		oldUser.setTelNumber(user.getTelNumber());
 		oldUser.setEmail(user.getEmail());
-		oldUser.setId(user.getId());
-		oldUser.setDelete(user.isDelete());
-		repo.save(oldUser);
+		oldUser.setDelete(user.isdelete());
+		Users updateUser = oldUser;
+		repo.save(updateUser);
 	
 		
 		return true;
@@ -49,7 +53,9 @@ public class UserService {
 	}
 	
 	public boolean remove(long id) {
-		repo.deleteById(null);
+		Users oldUser = getById(id);
+		oldUser.setDelete(true);
+		repo.save(oldUser);
 		return true;
 	}
 

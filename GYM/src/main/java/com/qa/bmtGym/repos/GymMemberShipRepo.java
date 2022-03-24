@@ -9,6 +9,6 @@ import com.qa.bmtGym.model.GymMemberShip;
 
 public interface GymMemberShipRepo extends JpaRepository<GymMemberShip, Long>{
 	
-	public List<GymMemberShip> findByIsDelete (boolean isdelete);
+	public List<GymMemberShip> findByIsdelete (boolean isdelete);
 
 }

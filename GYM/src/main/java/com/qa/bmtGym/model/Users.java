@@ -32,7 +32,7 @@ public class Users {
 	private String telNumber;
 	
 	@Column(nullable = false)
-	private boolean isDelete;
+	private boolean isdelete;
 	
 	
 	
@@ -44,7 +44,7 @@ public class Users {
 
 
 
-	public Users(long id, String fullName, int height, int weight, String email, String telNumber, boolean isDelete) {
+	public Users(long id, String fullName, int height, int weight, String email, String telNumber, boolean isdelete) {
 		super();
 		this.id = id;
 		this.fullName = fullName;
@@ -52,20 +52,20 @@ public class Users {
 		this.weight = weight;
 		this.email = email;
 		this.telNumber = telNumber;
-		this.isDelete = isDelete;
+		this.isdelete = isdelete;
 	}
 
 
 
 
-	public Users(String fullName, int height, int weight, String email, String telNumber, boolean isDelete) {
+	public Users(String fullName, int height, int weight, String email, String telNumber, boolean isdelete) {
 		super();
 		this.fullName = fullName;
 		this.height = height;
 		this.weight = weight;
 		this.email = email;
 		this.telNumber = telNumber;
-		this.isDelete = isDelete;
+		this.isdelete = isdelete;
 	}
 
 
@@ -155,15 +155,15 @@ public class Users {
 
 
 
-	public boolean isDelete() {
-		return isDelete;
+	public boolean isdelete() {
+		return isdelete;
 	}
 
 
 
 
-	public void setDelete(boolean isDelete) {
-		this.isDelete = isDelete;
+	public void setDelete(boolean isdelete) {
+		this.isdelete = isdelete;
 	}
 
 
@@ -177,7 +177,7 @@ public class Users {
 		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
 		result = prime * result + height;
 		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + (isDelete ? 1231 : 1237);
+		result = prime * result + (isdelete ? 1231 : 1237);
 		result = prime * result + ((telNumber == null) ? 0 : telNumber.hashCode());
 		result = prime * result + weight;
 		return result;
@@ -209,7 +209,7 @@ public class Users {
 			return false;
 		if (id != other.id)
 			return false;
-		if (isDelete != other.isDelete)
+		if (isdelete != other.isdelete)
 			return false;
 		if (telNumber == null) {
 			if (other.telNumber != null)
@@ -227,7 +227,7 @@ public class Users {
 	@Override
 	public String toString() {
 		return "Users [id=" + id + ", fullName=" + fullName + ", height=" + height + ", weight=" + weight + ", email="
-				+ email + ", telNumber=" + telNumber + ", isDelete=" + isDelete + "]";
+				+ email + ", telNumber=" + telNumber + ", isdelete=" + isdelete + "]";
 	}
 
 

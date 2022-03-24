@@ -27,7 +27,7 @@ public class GymMemberShipService {
 	}
 	
 	public List<GymMemberShip> getMemberShip(){
-		return memberShipRepo.findByIsDelete(false);
+		return memberShipRepo.findByIsdelete(false);
 	}
 	
 	public boolean payMemberShip(long id, int periodDate, float price) {
@@ -36,8 +36,9 @@ public class GymMemberShipService {
 		
 		oldMemberShip.setPeriodDate(periodDate);
 		oldMemberShip.setPrice(price);
-		oldMemberShip.setCreateDate(new Date());
+		oldMemberShip.setStartDate(new Date());
 		memberShipRepo.save(oldMemberShip);
+	
 		
 		return true;
 		

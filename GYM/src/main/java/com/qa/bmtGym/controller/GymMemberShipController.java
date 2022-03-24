@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,10 +41,10 @@ public class GymMemberShipController {
 		
 	}
 	
-	@PostMapping("/memberShip/pay")
-	public ResponseEntity<String> pay(@RequestBody GymMemberShip memberShip){
-		memberShipService.payMemberShip(memberShip.getUserId(), memberShip.getPeriodDate(), memberShip.getPrice());
-		ResponseEntity<String> response = new ResponseEntity<>("MemberShip extended" , HttpStatus.CREATED);
+	@PutMapping("/membership/pay/{id}")
+	public ResponseEntity<String> pay(@PathVariable("id") long id,@RequestBody GymMemberShip memberShip){
+		memberShipService.payMemberShip(id, memberShip.getPeriodDate(), memberShip.getPrice());
+		ResponseEntity<String> response = new ResponseEntity<>("MemberShip extended" , HttpStatus.ACCEPTED);
 		return response;
 		
 	}

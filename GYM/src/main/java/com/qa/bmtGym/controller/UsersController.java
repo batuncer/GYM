@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.qa.bmtGym.StringOutOfRangeException;
 import com.qa.bmtGym.model.Users;
 import com.qa.bmtGym.services.UserService;
 
@@ -50,9 +51,9 @@ public class UsersController {
 	}
 	
 	@PutMapping("/user/update/{id}")
-	public ResponseEntity<String> updateByid(@PathVariable("id") long id, @RequestBody Users user){
+	public ResponseEntity<String> updateByid(@PathVariable("id") long id, @RequestBody Users user) throws StringOutOfRangeException{
 		userService.update(id, user);
 		String response = "Updating user of id:" + id;
-		return new ResponseEntity<>(response, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
 }

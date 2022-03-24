@@ -45,13 +45,13 @@ public class AccountController {
 	public ResponseEntity<String>deleteByid(@PathVariable("id") long id){
 		
 		accountService.remove(id);
-		String response = "User of id: " + id + "deleted";
+		String response = "Account of id: " + id + "deleted";
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
 	@PutMapping("/account/update/{id}")
-	public ResponseEntity<String>updateByid(@PathVariable("id") long id){
-		accountService.update(id, null);
-		String response = "Updating user of id: " + id;
+	public ResponseEntity<String>updateByid(@PathVariable("id") long id,@RequestBody Accounts account){
+		accountService.update(id, account);
+		String response = "Updating account of id: " + id;
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 		
 	}
