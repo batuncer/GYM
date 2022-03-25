@@ -51,11 +51,12 @@ Jira
 https://bakimurat.atlassian.net/jira/people/61f110c06fa12a00704f46ca
 
 github link
+https://github.com/batuncer/GYM
 
 Database Diagram https://imgur.com/a/9jSHUTn
 Postman: create, get, update, delete (4photos)== for USERS == https://imgur.com/a/sP06dgh
 Postman: create, get, update, delete (4photos) ===for accounts   https://imgur.com/a/POuprVI
-Postman: for gym_membership
+Postman: for gym_membership https://imgur.com/a/0stlpWQ
 MySQL : screenshots (3 tables) https://imgur.com/a/VgI16SN
 
 
