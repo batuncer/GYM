@@ -73,7 +73,7 @@ Use of custom exceptions in your service = added exception
 Include the use of DTOs = with pay function
 Include the use of Lombok = i completed without using this. but i leanrt it from online 
 Achieve 80% test coverage of the src/main/java folder.
-
+2 branched wer used and merge into the main.
 
 This is my first proje and i did my best to do this. I hope you can see my effort and i can get the certificate. I can say that I will become software engeneer one day and that day is today or next year. This is my career goal and i will do everthing for it.
 
