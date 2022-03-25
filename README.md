@@ -53,12 +53,30 @@ https://bakimurat.atlassian.net/jira/people/61f110c06fa12a00704f46ca
 github link
 https://github.com/batuncer/GYM
 
+
 Database Diagram https://imgur.com/a/9jSHUTn
+Business diagram https://imgur.com/a/MSKFiOb
+Risk assessment to identify and analyse any potential risks  https://imgur.com/a/1fR670e
 Postman: create, get, update, delete (4photos)== for USERS == https://imgur.com/a/sP06dgh
 Postman: create, get, update, delete (4photos) ===for accounts   https://imgur.com/a/POuprVI
 Postman: for gym_membership https://imgur.com/a/0stlpWQ
 MySQL : screenshots (3 tables) https://imgur.com/a/VgI16SN
+Testing https://imgur.com/a/y3tuLFo
+
+STRECTH GOALS
+
+An ERD diagram for your specified domain and include it in the documentation folder- addded with business and database diagram
+
+Use of custom queries = isdelete
+
+Use of custom exceptions in your service = added exception
+Include the use of DTOs = with pay function
+Include the use of Lombok = i completed without using this. but i leanrt it from online 
+Achieve 80% test coverage of the src/main/java folder.
 
 
+This is my first proje and i did my best to do this. I hope you can see my effort and i can get the certificate. I can say that I will become software engeneer one day and that day is today or next year. This is my career goal and i will do everthing for it.
+
+THANK YOU
 
 
