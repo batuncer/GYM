@@ -1,6 +1,6 @@
 package com.qa.bmtGym.testing.services;
 
-import static org.mockito.Mockito.mockitoSession;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -99,19 +99,17 @@ public class UserServiceTest {
 		
 	}
 	
-//	@Test
-//	public void testRemove() {
-//		Mockito.when(userRepo.save(user1)).thenReturn(userId1);
-//		Users result = userService.create(user1);
-//		
-//		System.out.println(result);
-//		System.out.println(user1);
-//		
-//		Assertions.assertEquals(userId1, result);
-//		userService.remove(result.getId());
-//		Mockito.verify(userService, Mockito.times(1)).remove(result.getId());
-//		
-//	
-//	}
+	/*
+	 * @Test public void testRemove() {
+	 * Mockito.when(userRepo.save(user1)).thenReturn(userId1); Users result =
+	 * userService.create(user1);
+	 * 
+	 * System.out.println(result); System.out.println(user1);
+	 * 
+	 * Assertions.assertEquals(userId1, result); userService.remove(result.getId());
+	 * Mockito.verify(userService, Mockito.times(1)).remove(result.getId());
+	 * 
+	 * }
+	 */
 
 }

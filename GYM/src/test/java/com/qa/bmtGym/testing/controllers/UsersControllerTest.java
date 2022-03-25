@@ -82,14 +82,14 @@ public class UsersControllerTest {
 		List<Users> allUsers = List.of(userId1, userId2); // creating a list which contains these objects
 
 		
-		String allBookingsJson = mapper.writeValueAsString(allUsers);
+		String allUsersJson = mapper.writeValueAsString(allUsers);
 
 		
 		RequestBuilder req = get("/user/getUsers");
 
 		ResultMatcher checkStatus = status().isAccepted();
 		
-		ResultMatcher checkBody = content().json(allBookingsJson); // If not valid, we'll be able to see the exact response
+		ResultMatcher checkBody = content().json(allUsersJson); // If not valid, we'll be able to see the exact response
 
 		mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 
