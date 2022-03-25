@@ -7,13 +7,13 @@ My project has 3 databaseswhic are Accounts Users, GymMemberShip
 The Accounts database have the following fields:
 
 id (Long) : auto-incremented
--accountName (String)
--accountPassword (String)
--email (String)
--telNumber (String)
--address (String)
--price (float)
--isdelete (boolean)
+accountName (String)
+accountPassword (String)
+email (String)
+telNumber (String)
+address (String)
+price (float)
+isdelete (boolean)
 
 The Users database have the following fields:
 
@@ -44,6 +44,14 @@ Everything went well when I started the project, but I had a hard time creating 
 I guess it was a mistake to leave testing to the last day. It took me a long time to complete the testing because of the errors I keep getting. 
 I didn't want to do a project with a very simple single table, and when I started having difficulties, I couldn't get back from this idea. So I ask you to please forgive some of my mistakes.
 
+Since there are 3 tables, I show the postman screenshots for one table, you can also find the rest in the video I recorded.
+
+
+Jira
+https://bakimurat.atlassian.net/jira/people/61f110c06fa12a00704f46ca
+
+Database Diagram https://imgur.com/a/9jSHUTn
+Postman getUsers 
 
 
 
